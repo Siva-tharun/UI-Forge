@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Dose of Wisdom</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 15%, #16213e 35%, #0f172a 60%, #020617 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 10%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse at 70% 60%, rgba(168, 85, 247, 0.06) 0%, transparent 40%),
+                radial-gradient(ellipse at 10% 70%, rgba(34, 197, 94, 0.05) 0%, transparent 35%);
+            z-index: -2;
+            animation: nebulaFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes nebulaFloat {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1) rotate(0deg);
+            }
+            33% { 
+                opacity: 0.5;
+                transform: scale(1.05) rotate(1deg);
+            }
+            66% { 
+                opacity: 0.4;
+                transform: scale(0.98) rotate(-0.5deg);
+            }
+        }
+        
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            perspective: 1500px;
+        }
+        
+        .quote-box {
+            max-width: 450px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+            backdrop-filter: blur(30px);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.4),
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(59, 130, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .quote-box::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, 
+                rgba(59, 130, 246, 0.6) 0%, 
+                rgba(139, 92, 246, 0.5) 25%, 
+                rgba(168, 85, 247, 0.4) 50%, 
+                rgba(6, 182, 212, 0.5) 75%, 
+                rgba(34, 197, 94, 0.4) 100%);
+            border-radius: 2.5rem;
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.6;
+            animation: advancedBorderGlow 6s ease-in-out infinite;
+        }
+        
+        /* Enhanced Moon decoration */
+        .quote-box::after {
+            content: '🌙';
+            position: absolute;
+            top: -35px;
+            right: -35px;
+            font-size: 3.5rem;
+            filter: drop-shadow(0 0 20px rgba(253, 230, 138, 0.8)) drop-shadow(0 0 40px rgba(253, 230, 138, 0.4));
+            animation: advancedMoonFloat 8s ease-in-out infinite;
+            z-index: 10;
+        }
+        
+        @keyframes advancedMoonFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+                filter: drop-shadow(0 0 20px rgba(253, 230, 138, 0.8)) drop-shadow(0 0 40px rgba(253, 230, 138, 0.4));
+            }
+            25% { 
+                transform: translateY(-8px) translateX(3px) rotate(2deg) scale(1.05);
+                filter: drop-shadow(0 0 25px rgba(253, 230, 138, 0.9)) drop-shadow(0 0 50px rgba(253, 230, 138, 0.5));
+            }
+            50% { 
+                transform: translateY(-15px) translateX(0px) rotate(5deg) scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(253, 230, 138, 1)) drop-shadow(0 0 60px rgba(253, 230, 138, 0.6));
+            }
+            75% { 
+                transform: translateY(-8px) translateX(-3px) rotate(2deg) scale(1.05);
+                filter: drop-shadow(0 0 25px rgba(253, 230, 138, 0.9)) drop-shadow(0 0 50px rgba(253, 230, 138, 0.5));
+            }
+        }
+        
+        @keyframes advancedBorderGlow {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+            33% { 
+                opacity: 0.8;
+                transform: scale(1.02) rotate(1deg);
+            }
+            66% { 
+                opacity: 0.9;
+                transform: scale(1.01) rotate(-0.5deg);
+            }
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+        
+        .quote-box:hover {
+            transform: translateY(-20px) rotateX(8deg) rotateY(2deg) scale(1.02);
+            box-shadow: 
+                0 60px 120px rgba(0, 0, 0, 0.5),
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 15px 30px rgba(59, 130, 246, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 1);
+        }
+        .quote-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+            transform: translateZ(30px);
+            opacity: 1;
+            transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            min-height: 2.5rem;
+        }
+        
+        .quote-text::after {
+            content: '|';
+            color: #3b82f6;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+            opacity: 0;
+        }
+        
+        .quote-text.typing::after {
+            opacity: 1;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .quote-text.changing {
+            opacity: 0;
+            transform: translateZ(30px) rotateY(90deg) scale(0.8);
+        }
+        
+        .quote-author {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-style: italic;
+            transform: translateZ(20px);
+            opacity: 1;
+            transition: all 1s cubic-bezier(0.23, 1, 0.320, 1) 0.1s;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            min-height: 1.5rem;
+        }
+        
+        .quote-author.changing {
+            opacity: 0;
+            transform: translateZ(20px) rotateY(-90deg) scale(0.8);
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(40px);
+            font-size: 0.9rem;
+            min-width: 140px;
+            width: 140px;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 
+                0 10px 30px rgba(59, 130, 246, 0.4),
+                0 5px 15px rgba(59, 130, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
+            transform: translateY(-8px) translateZ(40px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(59, 130, 246, 0.5),
+                0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+            color: #374151;
+            border-color: #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            padding: 0.8rem 1.5rem;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, rgba(249, 250, 251, 0.95) 0%, rgba(243, 244, 246, 0.9) 100%);
+            transform: translateY(-8px) translateZ(40px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .heart-icon {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+        
+        .heart-icon.filled {
+            color: #ef4444;
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.6));
+            animation: advancedHeartPulse 1.2s ease-in-out;
+        }
+        
+        @keyframes advancedHeartPulse {
+            0%, 100% { transform: scale(1.3); }
+            25% { transform: scale(1.5) rotate(5deg); }
+            50% { transform: scale(1.6) rotate(-2deg); }
+            75% { transform: scale(1.4) rotate(3deg); }
+        }
+        .favorites-sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+            backdrop-filter: blur(40px);
+            box-shadow: 
+                -15px 0 60px rgba(0, 0, 0, 0.5),
+                -8px 0 30px rgba(0, 0, 0, 0.3),
+                -3px 0 15px rgba(59, 130, 246, 0.2),
+                inset 1px 0 0 rgba(255, 255, 255, 0.1);
+            transition: right 0.7s cubic-bezier(0.23, 1, 0.320, 1);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            z-index: 1000;
+            transform-style: preserve-3d;
+            border-left: 3px solid rgba(59, 130, 246, 0.4);
+        }
+        
+        .favorites-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            color: #e2e8f0;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            z-index: 1002;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.3),
+                0 3px 10px rgba(59, 130, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .favorites-close-btn:hover {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            border-color: rgba(239, 68, 68, 0.5);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 
+                0 8px 25px rgba(239, 68, 68, 0.4),
+                0 4px 15px rgba(239, 68, 68, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .favorites-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, 0.08) 0%, 
+                rgba(139, 92, 246, 0.06) 30%,
+                rgba(168, 85, 247, 0.04) 60%, 
+                rgba(6, 182, 212, 0.06) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .favorites-sidebar.open {
+            right: 0;
+        }
+        
+        .favorites-toggle-btn {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 9999px;
+            z-index: 1001;
+            box-shadow: 
+                0 10px 30px rgba(59, 130, 246, 0.4),
+                0 5px 15px rgba(59, 130, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            border: none;
+            transform: translateZ(60px);
+            font-weight: 700;
+            font-size: 0.9rem;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .favorites-toggle-btn.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateZ(60px) scale(0.8);
+        }
+        
+        .favorites-toggle-btn:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
+            transform: translateZ(60px) scale(1.1);
+            box-shadow: 
+                0 20px 40px rgba(59, 130, 246, 0.5),
+                0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .favorites-sidebar h2 {
+            color: #e2e8f0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            border-bottom: 3px solid rgba(59, 130, 246, 0.4);
+            padding-bottom: 1rem;
+            background: linear-gradient(135deg, #e2e8f0 0%, #3b82f6 50%, #8b5cf6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        
+        .favorites-sidebar h2::after {
+            content: '🌙';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(253, 230, 138, 0.6));
+            animation: gentleMoonFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes gentleMoonFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                filter: drop-shadow(0 0 10px rgba(253, 230, 138, 0.6));
+            }
+            50% { 
+                transform: translateY(-3px) rotate(5deg);
+                filter: drop-shadow(0 0 15px rgba(253, 230, 138, 0.8));
+            }
+        }
+        
+        .favorites-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .favorites-list li {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.3),
+                0 6px 18px rgba(0, 0, 0, 0.2),
+                0 3px 9px rgba(59, 130, 246, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            transform: translateZ(20px);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            overflow: hidden;
+        }
+        
+        .favorites-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.05) 0%, 
+                rgba(139, 92, 246, 0.03) 50%, 
+                rgba(168, 85, 247, 0.05) 100%);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .favorites-list li:hover::before {
+            opacity: 1;
+        }
+        
+        .favorites-list li:hover {
+            transform: translateZ(20px) translateY(-12px) scale(1.03);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 15px 30px rgba(0, 0, 0, 0.3),
+                0 8px 20px rgba(59, 130, 246, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .favorites-list .remove-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1rem;
+            color: #ef4444;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            padding: 0.6rem;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.3),
+                0 3px 10px rgba(239, 68, 68, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .favorites-list .remove-btn:hover {
+            transform: scale(1.3) rotate(180deg);
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            box-shadow: 
+                0 8px 25px rgba(239, 68, 68, 0.5),
+                0 4px 15px rgba(239, 68, 68, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            color: white;
+            border-color: rgba(239, 68, 68, 0.6);
+        }
+        
+        .no-favorites-message {
+            color: #94a3b8;
+            font-style: italic;
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.8;
+            font-size: 1rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
+            border-radius: 1.25rem;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+        }
+        
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #fef3c7 0%, #f59e0b 70%, #d97706 100%);
+            border-radius: 50%;
+            animation: hyperRealisticFloat 25s infinite linear;
+            box-shadow: 
+                0 0 8px #fbbf24, 
+                0 0 16px #f59e0b,
+                0 0 24px rgba(251, 191, 36, 0.3);
+        }
+        
+        .star {
+            position: absolute;
+            color: #fef3c7;
+            animation: advancedTwinkle 4s ease-in-out infinite;
+            text-shadow: 
+                0 0 8px #fbbf24,
+                0 0 16px #f59e0b,
+                0 0 24px rgba(251, 191, 36, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        .star.large {
+            font-size: 16px;
+            animation-duration: 3s;
+        }
+        
+        .star.medium {
+            font-size: 12px;
+            animation-duration: 4s;
+        }
+        
+        .star.small {
+            font-size: 8px;
+            animation-duration: 5s;
+        }
+        
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(90deg, #ffffff, #fbbf24, transparent);
+            border-radius: 50%;
+            animation: shootingStar 3s ease-out infinite;
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(-100px) scale(0);
+                opacity: 0;
+            }
+            10% {
+                transform: translateX(-50px) translateY(-50px) scale(1);
+                opacity: 1;
+                box-shadow: 0 0 20px #fbbf24;
+            }
+            90% {
+                transform: translateX(200px) translateY(200px) scale(1);
+                opacity: 1;
+                box-shadow: 0 0 20px #fbbf24;
+            }
+            100% {
+                transform: translateX(300px) translateY(300px) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes advancedTwinkle {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(0.8) rotate(0deg);
+                filter: brightness(1);
+            }
+            25% { 
+                opacity: 0.8; 
+                transform: scale(1.1) rotate(90deg);
+                filter: brightness(1.3);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3) rotate(180deg);
+                filter: brightness(1.5);
+            }
+            75% { 
+                opacity: 0.8; 
+                transform: scale(1.1) rotate(270deg);
+                filter: brightness(1.3);
+            }
+        }
+        
+        @keyframes hyperRealisticFloat {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) translateX(10px) rotate(45deg) scale(1);
+            }
+            25% {
+                transform: translateY(75vh) translateX(-5px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translateY(50vh) translateX(15px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                transform: translateY(25vh) translateX(-10px) rotate(270deg) scale(1.2);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) translateX(5px) rotate(315deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0px) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .quote-box {
+                padding: 1.25rem;
+                max-width: 350px;
+            }
+            .quote-text {
+                font-size: 1.1rem;
+            }
+            .quote-author {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            .favorites-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            .favorites-sidebar.open {
+                right: 0;
+            }
+            .favorites-toggle-btn {
+                top: auto;
+                bottom: 20px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-particles" id="floating-particles"></div>
+
+    <div class="container">
+        <div class="quote-box">
+            <h1 style="color: #e2e8f0; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); margin-bottom: 1.5rem; font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #e2e8f0 0%, #3b82f6 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Daily Dose of Wisdom </h1>
+            <p id="quote-text" class="quote-text">Loading a great quote for you...</p>
+            <p id="quote-author" class="quote-author">— Author</p>
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button id="new-quote-btn" class="btn btn-primary">New Quote</button>
+                <button id="save-quote-btn" class="btn btn-secondary">
+                    <span id="heart-icon" class="heart-icon">♡</span>
+                    <span>Save Quote</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="favorites-sidebar" class="favorites-sidebar">
+        <button id="favorites-close-btn" class="favorites-close-btn">✕</button>
+        <h2>Favorite Quotes ⭐</h2>
+        <ul id="favorites-list" class="favorites-list">
+            <p id="no-favorites-message" class="no-favorites-message">You haven't saved any quotes yet.</p>
+        </ul>
+    </div>
+
+    <button id="favorites-toggle-btn" class="favorites-toggle-btn">
+        <span class="mr-2">★</span>
+        <span>Favorites</span>
+    </button>
+
+    <script>
+        console.log('Script started loading...');
+        
+        const quotes = [
+            { text: "If they think I'm a monster, I'll give them a monster.", author: "𝕆𝕣𝕚𝕠𝕟" },
+            { text: "I can outjump you with only one leg.", author: "𝕃𝕖𝕠𝕟" },
+            { text: "To be the best, you need the best.", author: "ℂ𝕙𝕣𝕠𝕟𝕠 " },
+            { text: "I'll leave you in the dust.", author: " 𝕂𝕖𝕝𝕝𝕪" },
+            { text: "Don't believe SHIROU, when it comes to the Garcias, I'm the good boy.", author: "𝕋𝕒𝕥𝕤𝕦𝕪𝕒" },
+            { text: "You know those Angelic Pants, those were my designs.", author: " 𝕊𝕒𝕟𝕥𝕚𝕟𝕠" },
+            { text: "Some people are prisoners of their own mind.", author: "𝕂 " },
+            { text: "If you hear me laughing, it's already too late.", author: "À𝕝𝕧𝕒𝕣𝕠" },
+            { text: "Oh Man! I should have finished those deep fried chicken wings from last night, I'm starving.", author: "𝕄𝕒𝕩𝕚𝕞 " },
+            { text: "Protect those you love.", author: "𝔸𝕟𝕕𝕣𝕖𝕨" },
+            { text: "I'm the undying flame. To those who have doubted me, watch me catch fire.", author: "Sam Levenson" },
+            { text: "Everything for the family. Can I trust you on this?", author: "Mark Twain" },
+            { text: "I stand up to the bullies. Spread your wings and fly.", author: "Steve Jobs" },
+            { text: "I'm all adrenaline. Chase me if you can. Falling is freedom.", author: "John Lennon" },
+            { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" }
+        ];
+
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+        const saveQuoteBtn = document.getElementById('save-quote-btn');
+        const heartIcon = document.getElementById('heart-icon');
+        const favoritesSidebar = document.getElementById('favorites-sidebar');
+        const favoritesToggleBtn = document.getElementById('favorites-toggle-btn');
+        const favoritesCloseBtn = document.getElementById('favorites-close-btn');
+        const favoritesList = document.getElementById('favorites-list');
+        const noFavoritesMessage = document.getElementById('no-favorites-message');
+        const floatingParticles = document.getElementById('floating-particles');
+
+        // Debug: Check if all elements are found
+        console.log('DOM Elements Check:');
+        console.log('quoteText:', quoteText);
+        console.log('quoteAuthor:', quoteAuthor);
+        console.log('newQuoteBtn:', newQuoteBtn);
+        console.log('saveQuoteBtn:', saveQuoteBtn);
+        console.log('heartIcon:', heartIcon);
+        console.log('favoritesSidebar:', favoritesSidebar);
+        console.log('favoritesToggleBtn:', favoritesToggleBtn);
+        console.log('favoritesCloseBtn:', favoritesCloseBtn);
+        console.log('favoritesList:', favoritesList);
+        console.log('noFavoritesMessage:', noFavoritesMessage);
+        console.log('floatingParticles:', floatingParticles);
+
+        let currentQuote = null;
+        let favoriteQuotes = [];
+        
+        console.log('Variables initialized');
+        console.log('quotes array has', quotes.length, 'quotes');
+        
+        // Initialize favorites from localStorage with error handling
+        try {
+            const savedFavorites = localStorage.getItem('favoriteQuotes');
+            if (savedFavorites) {
+                favoriteQuotes = JSON.parse(savedFavorites);
+                console.log('Loaded favorites from localStorage:', favoriteQuotes);
+            } else {
+                console.log('No saved favorites found');
+            }
+        } catch (error) {
+            console.error('Error loading favorites from localStorage:', error);
+            favoriteQuotes = [];
+        }
+
+        // Create hyper-realistic floating particles and stars for advanced night sky effect
+        function createFloatingParticles() {
+            // Create floating star particles with enhanced realism
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 15) + 's';
+                floatingParticles.appendChild(particle);
+            }
+            
+            // Create twinkling stars with varying sizes
+            const starTypes = ['large', 'medium', 'small'];
+            const starSymbols = ['✦', '✧', '⋆', '✶', '✯'];
+            
+            for (let i = 0; i < 40; i++) {
+                const star = document.createElement('div');
+                star.className = `star ${starTypes[Math.floor(Math.random() * starTypes.length)]}`;
+                star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                floatingParticles.appendChild(star);
+            }
+            
+            // Create shooting stars
+            for (let i = 0; i < 3; i++) {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                shootingStar.style.left = Math.random() * 50 + '%';
+                shootingStar.style.top = Math.random() * 50 + '%';
+                shootingStar.style.animationDelay = (Math.random() * 10 + 5) + 's';
+                shootingStar.style.animationDuration = (2 + Math.random() * 2) + 's';
+                floatingParticles.appendChild(shootingStar);
+            }
+        }
+
+        function getRandomQuote() {
+            console.log('=== getRandomQuote function called ===');
+            console.log('Available quotes:', quotes.length);
+            
+            if (quotes.length === 0) {
+                console.error('❌ No quotes available');
+                return null;
+            }
+
+            let newQuote;
+            let attempts = 0;
+            const maxAttempts = 10; // Prevent infinite loop
+            
+            do {
+                newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                attempts++;
+            } while (newQuote === currentQuote && quotes.length > 1 && attempts < maxAttempts);
+            
+            console.log('✅ Selected quote:', newQuote);
+            console.log('=== getRandomQuote function completed ===');
+            return newQuote;
+        }
+
+        function displayQuote(quote, animate = false) {
+            console.log('=== displayQuote function called ===');
+            console.log('Quote received:', quote);
+            console.log('Animate:', animate);
+            
+            if (!quote || !quote.text || !quote.author) {
+                console.error('❌ Invalid quote object:', quote);
+                return;
+            }
+
+            // IMPORTANT: Set currentQuote here
+            currentQuote = quote;
+            console.log('✅ currentQuote updated to:', currentQuote);
+
+            if (animate) {
+                quoteText.classList.add('changing');
+                quoteAuthor.classList.add('changing');
+                
+                setTimeout(() => {
+                    // Clear the text and start typing effect
+                    quoteText.textContent = '';
+                    quoteAuthor.textContent = '';
+                    
+                    quoteText.classList.remove('changing');
+                    quoteAuthor.classList.remove('changing');
+                    
+                    // Start typing animation
+                    typeWriter(quote.text, quoteText, () => {
+                        // After quote is typed, type the author
+                        setTimeout(() => {
+                            typeWriter(`— ${quote.author}`, quoteAuthor, () => {
+                                updateSaveButtonState(quote);
+                            });
+                        }, 300);
+                    });
+                    
+                    console.log('✅ Quote display updated with typing animation');
+                }, 400);
+            } else {
+                quoteText.textContent = quote.text;
+                quoteAuthor.textContent = `— ${quote.author}`;
+                updateSaveButtonState(quote);
+                console.log('✅ Quote display updated without animation');
+            }
+            
+            console.log('=== displayQuote function completed ===');
+        }
+
+        function typeWriter(text, element, callback = null) {
+            let i = 0;
+            element.classList.add('typing');
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    // Random typing speed between 30-80ms for more natural feel
+                    setTimeout(type, Math.random() * 50 + 30);
+                } else {
+                    element.classList.remove('typing');
+                    if (callback) callback();
+                }
+            }
+            
+            type();
+        }
+
+        function updateSaveButtonState(quote) {
+            if (!quote) return;
+            
+            const isFavorite = favoriteQuotes.some(fav => fav.text === quote.text && fav.author === quote.author);
+            if (isFavorite) {
+                heartIcon.textContent = '❤';
+                heartIcon.classList.add('filled');
+            } else {
+                heartIcon.textContent = '♡';
+                heartIcon.classList.remove('filled');
+            }
+        }
+
+        function saveFavoriteQuote() {
+            console.log('=== saveFavoriteQuote function called ===');
+            console.log('currentQuote at start:', currentQuote);
+            
+            if (!currentQuote) {
+                console.log('ERROR: No current quote to save');
+                alert('No quote loaded yet. Please click "New Quote" first.');
+                return;
+            }
+            
+            console.log('Attempting to save quote:', currentQuote);
+            console.log('Current favorites before save:', favoriteQuotes);
+            
+            const isFavorite = favoriteQuotes.some(fav => fav.text === currentQuote.text);
+            console.log('Is quote already in favorites?', isFavorite);
+            
+            if (isFavorite) {
+                favoriteQuotes = favoriteQuotes.filter(fav => fav.text !== currentQuote.text);
+                console.log('Quote REMOVED from favorites');
+            } else {
+                favoriteQuotes.push(currentQuote);
+                console.log('Quote ADDED to favorites');
+            }
+            
+            console.log('Favorites after update:', favoriteQuotes);
+            
+            // Save to localStorage with error handling
+            try {
+                localStorage.setItem('favoriteQuotes', JSON.stringify(favoriteQuotes));
+                console.log('✅ Favorites saved to localStorage successfully');
+                console.log('localStorage now contains:', localStorage.getItem('favoriteQuotes'));
+            } catch (error) {
+                console.error('❌ Error saving to localStorage:', error);
+                alert('Error saving to browser storage: ' + error.message);
+            }
+            
+            updateSaveButtonState(currentQuote);
+            renderFavorites();
+            
+            console.log('=== saveFavoriteQuote function completed ===');
+        }
+
+        function removeFavoriteQuote(quoteToRemove) {
+            favoriteQuotes = favoriteQuotes.filter(fav => fav.text !== quoteToRemove.text);
+            localStorage.setItem('favoriteQuotes', JSON.stringify(favoriteQuotes));
+            updateSaveButtonState(currentQuote);
+            renderFavorites();
+            
+            // Only close sidebar if no quotes left, otherwise keep it open
+            if (favoriteQuotes.length === 0) {
+                closeFavoritesSidebar();
+            }
+        }
+
+        function renderFavorites() {
+            favoritesList.innerHTML = '';
+            
+            if (favoriteQuotes.length === 0) {
+                noFavoritesMessage.style.display = 'block';
+            } else {
+                noFavoritesMessage.style.display = 'none';
+                favoriteQuotes.forEach(quote => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <p style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600; line-height: 1.5; margin-bottom: 0.5rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">${quote.text}</p>
+                        <p style="font-size: 0.8rem; color: #94a3b8; font-style: italic; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">— ${quote.author}</p>
+                        <button class="remove-btn" data-quote-text="${quote.text}">✖</button>
+                    `;
+                    favoritesList.appendChild(li);
+                });
+            }
+        }
+
+        function toggleFavoritesSidebar() {
+            favoritesSidebar.classList.toggle('open');
+            
+            // Toggle button visibility
+            if (favoritesSidebar.classList.contains('open')) {
+                favoritesToggleBtn.classList.add('hidden');
+            } else {
+                favoritesToggleBtn.classList.remove('hidden');
+            }
+        }
+        
+        function closeFavoritesSidebar() {
+            favoritesSidebar.classList.remove('open');
+            favoritesToggleBtn.classList.remove('hidden');
+        }
+
+        // Add click outside to close sidebar (but not when clicking inside favorites list)
+        document.addEventListener('click', (e) => {
+            if (!favoritesSidebar.contains(e.target) && !favoritesToggleBtn.contains(e.target)) {
+                closeFavoritesSidebar();
+            }
+        });
+
+        // Event Listeners with null checks
+        console.log('Setting up event listeners...');
+        console.log('newQuoteBtn:', newQuoteBtn);
+        console.log('saveQuoteBtn:', saveQuoteBtn);
+        
+        if (newQuoteBtn) {
+            newQuoteBtn.addEventListener('click', () => {
+                console.log('New Quote button clicked');
+                const newQuote = getRandomQuote();
+                console.log('Generated quote:', newQuote);
+                displayQuote(newQuote, true);
+            });
+            console.log('New Quote button event listener added');
+        } else {
+            console.error('New Quote button not found!');
+        }
+
+        if (saveQuoteBtn) {
+            saveQuoteBtn.addEventListener('click', (event) => {
+                console.log('=== SAVE QUOTE BUTTON CLICKED ===');
+                console.log('Event:', event);
+                console.log('Button element:', saveQuoteBtn);
+                console.log('Current quote before save:', currentQuote);
+                saveFavoriteQuote();
+            });
+            console.log('✅ Save Quote button event listener added');
+        } else {
+            console.error('❌ Save Quote button not found!');
+        }
+
+        favoritesToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFavoritesSidebar();
+        });
+
+        favoritesCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeFavoritesSidebar();
+        });
+
+        favoritesList.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent sidebar from closing when clicking inside
+            if (e.target.classList.contains('remove-btn')) {
+                const quoteTextToRemove = e.target.getAttribute('data-quote-text');
+                const quoteToRemove = favoriteQuotes.find(fav => fav.text === quoteTextToRemove);
+                if (quoteToRemove) {
+                    removeFavoriteQuote(quoteToRemove);
+                }
+            }
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') {
+                if (e.target.tagName !== 'BUTTON' && !favoritesSidebar.classList.contains('open')) {
+                    e.preventDefault();
+                    const newQuote = getRandomQuote();
+                    displayQuote(newQuote, true);
+                }
+            }
+            if (e.key === 'Escape') {
+                closeFavoritesSidebar();
+            }
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            console.log('=== Page loaded, initializing... ===');
+            createFloatingParticles();
+            
+            // Initialize with first quote
+            const initialQuote = getRandomQuote();
+            console.log('Initial quote:', initialQuote);
+            displayQuote(initialQuote, false);
+            
+            renderFavorites();
+            console.log('✅ Initialization complete');
+            
+            // Add manual test function to window for debugging
+            window.testSaveQuote = function() {
+                console.log('=== MANUAL TEST: Save Quote ===');
+                console.log('Current quote:', currentQuote);
+                saveFavoriteQuote();
+            };
+            
+            console.log('💡 You can test save functionality by typing: testSaveQuote() in the browser console');
+        });
+
+        // Also add DOMContentLoaded as backup
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded - Alternative initialization');
+            
+            // Test button functionality immediately
+            const testNewBtn = document.getElementById('new-quote-btn');
+            const testSaveBtn = document.getElementById('save-quote-btn');
+            
+            console.log('DOMContentLoaded - testNewBtn:', testNewBtn);
+            console.log('DOMContentLoaded - testSaveBtn:', testSaveBtn);
+            
+            if (testNewBtn) {
+                console.log('Adding click listener to New Quote button');
+                testNewBtn.onclick = function() {
+                    console.log('New Quote button clicked via onclick');
+                    const newQuote = getRandomQuote();
+                    displayQuote(newQuote, true);
+                };
+            }
+            
+            if (testSaveBtn) {
+                console.log('Adding click listener to Save Quote button');
+                testSaveBtn.onclick = function(event) {
+                    console.log('=== Save Quote button clicked via onclick ===');
+                    console.log('Event:', event);
+                    console.log('currentQuote:', currentQuote);
+                    saveFavoriteQuote();
+                };
+                
+                // Also add addEventListener as backup
+                testSaveBtn.addEventListener('click', function(event) {
+                    console.log('=== Save Quote button clicked via addEventListener (backup) ===');
+                    saveFavoriteQuote();
+                });
+            }
+            
+            if (!currentQuote) {
+                const initialQuote = getRandomQuote();
+                console.log('DOMContentLoaded - Initial quote:', initialQuote);
+                displayQuote(initialQuote, false);
+            }
+        });
+    </script>
+</body>
+</html>
