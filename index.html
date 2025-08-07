@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -176,23 +177,6 @@
             position: relative;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             min-height: 2.5rem;
-        }
-        
-        .quote-text::after {
-            content: '|';
-            color: #3b82f6;
-            animation: blink 1s infinite;
-            margin-left: 2px;
-            opacity: 0;
-        }
-        
-        .quote-text.typing::after {
-            opacity: 1;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
         }
         
         .quote-text.changing {
@@ -901,24 +885,16 @@
                 quoteAuthor.classList.add('changing');
                 
                 setTimeout(() => {
-                    // Clear the text and start typing effect
-                    quoteText.textContent = '';
-                    quoteAuthor.textContent = '';
+                    // Display the new quote instantly
+                    quoteText.textContent = quote.text;
+                    quoteAuthor.textContent = `— ${quote.author}`;
                     
                     quoteText.classList.remove('changing');
                     quoteAuthor.classList.remove('changing');
                     
-                    // Start typing animation
-                    typeWriter(quote.text, quoteText, () => {
-                        // After quote is typed, type the author
-                        setTimeout(() => {
-                            typeWriter(`— ${quote.author}`, quoteAuthor, () => {
-                                updateSaveButtonState(quote);
-                            });
-                        }, 300);
-                    });
+                    updateSaveButtonState(quote);
                     
-                    console.log('✅ Quote display updated with typing animation');
+                    console.log('✅ Quote display updated with animation');
                 }, 400);
             } else {
                 quoteText.textContent = quote.text;
@@ -928,25 +904,6 @@
             }
             
             console.log('=== displayQuote function completed ===');
-        }
-
-        function typeWriter(text, element, callback = null) {
-            let i = 0;
-            element.classList.add('typing');
-            
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    // Random typing speed between 30-80ms for more natural feel
-                    setTimeout(type, Math.random() * 50 + 30);
-                } else {
-                    element.classList.remove('typing');
-                    if (callback) callback();
-                }
-            }
-            
-            type();
         }
 
         function updateSaveButtonState(quote) {
